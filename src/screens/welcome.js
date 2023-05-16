@@ -1,16 +1,16 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react';
-import pattern from "../../assets/welcome.jpg"
+import pattern from "../../assets/welcomelogo.png"
 import { button1 } from '../comman/button';
 
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.container1}>
                 {/* <Text style={{ color: "#fff", fontSize: 20 }}>Welcome</Text> */}
-                {/* <Image style={styles.logo} source={pattern} /> */}
-                <Text style={button1}>Login</Text>
-                <Text style={button1}>Signup</Text>
+                <Image style={styles.logo} source={pattern} />
+                <Text style={button1} onPress={() => navigation.navigate('login')}>Login</Text>
+                <Text style={button1} onPress={() => navigation.navigate('signup')}>Signup</Text>
             </View>
         </View>
     )
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     logo: {
-        width: 200,
-        aspectRatio: 1
+        height: '20%',
+        resizeMode: 'contain',
+        marginBottom: 50
     }
 })
